@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Waste Economics | Swachhata Hi Seva</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(circle at top right, rgba(55, 125, 255, 0.10), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(0, 200, 140, 0.08), transparent 35%),
+            #090d13;
+        color: #f3f5f7;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: min(1150px, 92%);
+        margin: auto;
+    }
+
+    /* HEADER */
+    header {
+        padding: 55px 0 35px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .event-tag {
+        display: inline-block;
+        padding: 7px 13px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.10);
+        color: #b9c2cf;
+        font-size: 0.78rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -3px;
+        margin-bottom: 18px;
+    }
+
+    .title-accent {
+        color: #62e6a5;
+    }
+
+    .subtitle {
+        max-width: 780px;
+        color: #aeb8c5;
+        font-size: 1.05rem;
+    }
+
+    .author {
+        margin-top: 28px;
+        color: #dce2e9;
+        font-size: 0.95rem;
+    }
+
+    .author strong {
+        color: #ffffff;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+        padding: 45px 0;
+    }
+
+    .section-title {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .section-title > span {
+        font-size: 1.7rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.65rem;
+        margin-bottom: 4px;
+    }
+
+    .section-title p {
+        color: #8f99a7;
+        font-size: 0.92rem;
+    }
+
+    /* CARDS */
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.035);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+        padding: 25px;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        color: #aeb7c4;
+        font-size: 0.94rem;
+    }
+
+    /* FACTORY FLOW */
+    .factory-card {
+        background: linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+        border: 1px solid rgba(255,255,255,0.09);
+        border-radius: 22px;
+        padding: 30px;
+    }
+
+    .factory-flow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 25px 0;
+    }
+
+    .flow-box {
+        padding: 18px 20px;
+        min-width: 145px;
+        text-align: center;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .flow-box .emoji {
+        font-size: 1.7rem;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .flow-arrow {
+        color: #62e6a5;
+        font-size: 1.5rem;
+    }
+
+    .factory-note {
+        color: #9da7b5;
+        text-align: center;
+        font-size: 0.92rem;
+    }
+
+    /* GOVERNMENT POLICY */
+    .policy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .policy-card {
+        padding: 25px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .policy-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .policy-card h3 {
+        margin-bottom: 8px;
+    }
+
+    .policy-card p {
+        color: #aeb7c4;
+        font-size: 0.93rem;
+    }
+
+    .example {
+        margin-top: 15px;
+        padding: 13px 15px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.045);
+        color: #dce2e9;
+        font-size: 0.88rem;
+    }
+
+    /* SIMULATOR */
+    .simulator {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(98,230,165,0.08),
+                rgba(80,140,255,0.06)
+            );
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 24px;
+        padding: 30px;
+    }
+
+    .simulator-header {
+        margin-bottom: 28px;
+    }
+
+    .simulator-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .simulator-header p {
+        color: #9da7b5;
+        margin-top: 5px;
+    }
+
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .control {
+        background: rgba(0,0,0,0.18);
+        border-radius: 16px;
+        padding: 20px;
+    }
+
+    .control-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .control-top label {
+        font-weight: bold;
+    }
+
+    .value {
+        color: #62e6a5;
+        font-weight: bold;
+        font-size: 1.15rem;
+    }
+
+    input[type="range"] {
+        width: 100%;
+        accent-color: #62e6a5;
+        cursor: pointer;
+    }
+
+    .help-text {
+        color: #7f8997;
+        font-size: 0.8rem;
+        margin-top: 9px;
+    }
+
+    /* KPI */
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 25px;
+    }
+
+    .kpi {
+        background: rgba(0,0,0,0.18);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    .kpi-label {
+        color: #8f99a7;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+    }
+
+    .kpi-value {
+        font-size: 1.65rem;
+        font-weight: bold;
+        margin-top: 4px;
+    }
+
+    /* VISUALIZATION */
+    .visual-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+    }
+
+    .visual-card {
+        background: rgba(0,0,0,0.18);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 18px;
+        padding: 25px;
+    }
+
+    .visual-card h3 {
+        margin-bottom: 20px;
+    }
+
+    .bar-container {
+        height: 42px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #1b222c;
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    .recycled-bar {
+        width: 40%;
+        background: #62e6a5;
+        transition: width 0.4s ease;
+    }
+
+    .disposed-bar {
+        width: 60%;
+        background: #596372;
+        transition: width 0.4s ease;
+    }
+
+    .legend {
+        display: flex;
+        justify-content: space-between;
+        color: #9da7b5;
+        font-size: 0.84rem;
+    }
+
+    .legend span {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .green-dot {
+        background: #62e6a5;
+    }
+
+    .grey-dot {
+        background: #596372;
+    }
+
+    /* COST CARD */
+    .cost-number {
+        font-size: 2.7rem;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    .cost-label {
+        color: #8f99a7;
+        font-size: 0.85rem;
+    }
+
+    .formula {
+        margin-top: 18px;
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+        color: #cbd2da;
+        font-size: 0.85rem;
+    }
+
+    /* PUBLIC SOCIAL COST */
+    .public-cost-box {
+        background: rgba(255,255,255,0.035);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 28px;
+    }
+
+    .public-intro {
+        background: rgba(255,255,255,0.04);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 22px;
+    }
+
+    .public-intro strong {
+        font-size: 1.12rem;
+    }
+
+    .public-intro p {
+        margin-top: 10px;
+        color: #b8c0cc;
+        line-height: 1.7;
+    }
+
+    .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    .impact-card {
+        background: rgba(255,255,255,0.035);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    .impact-card span {
+        font-size: 1.7rem;
+    }
+
+    .impact-card h3 {
+        margin: 12px 0 8px;
+    }
+
+    .impact-card p {
+        color: #aeb6c2;
+        line-height: 1.6;
+        font-size: 0.90rem;
+    }
+
+    .social-cost-explanation {
+        margin-top: 22px;
+        padding: 22px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.025);
+    }
+
+    .social-cost-explanation h3 {
+        margin-bottom: 10px;
+    }
+
+    .social-cost-explanation p {
+        color: #b8c0cc;
+        line-height: 1.7;
+    }
+
+    .formula-large {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin: 24px 0;
+        padding: 18px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .formula-large b {
+        font-size: 1.3rem;
+    }
+
+    .example-highlight {
+        padding: 18px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.045);
+        line-height: 1.7;
+    }
+
+    .small-note {
+        font-size: 0.82rem !important;
+        margin-top: 15px;
+        opacity: 0.75;
+    }
+
+    /* INSIGHT */
+    .insight {
+        margin-top: 18px;
+        padding: 20px;
+        border-left: 3px solid #62e6a5;
+        border-radius: 10px;
+        background: rgba(98,230,165,0.06);
+    }
+
+    .insight h3 {
+        margin-bottom: 7px;
+    }
+
+    .insight p {
+        color: #b9c2cd;
+    }
+
+    /* TAKEAWAY */
+    .takeaway {
+        padding: 30px;
+        border-radius: 22px;
+        background: linear-gradient(
+            135deg,
+            rgba(98,230,165,0.08),
+            rgba(255,255,255,0.025)
+        );
+        border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .takeaway h2 {
+        margin-bottom: 12px;
+    }
+
+    .takeaway p {
+        color: #b5bec9;
+        max-width: 850px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 35px 0 45px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        color: #737d8a;
+        font-size: 0.82rem;
+    }
+
+    footer strong {
+        color: #b4bdc8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .kpi-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .visual-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .impact-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 650px) {
+        header {
+            padding-top: 35px;
+        }
+
+        h1 {
+            letter-spacing: -1.5px;
+        }
+
+        .grid-2,
+        .policy-grid,
+        .controls {
+            grid-template-columns: 1fr;
+        }
+
+        .kpi-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .impact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .factory-flow {
+            flex-direction: column;
+        }
+
+        .flow-arrow {
+            transform: rotate(90deg);
+        }
+
+        .simulator,
+        .public-cost-box {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+    <div class="container">
+
+        <div class="event-tag">
+            SWACHHATA HI SEVA • ECONOMICS EXHIBITION
+        </div>
+
+        <h1>
+            WASTE <span class="title-accent">ECONOMICS</span> ♻️
+        </h1>
+
+        <p class="subtitle">
+            An interactive economic model showing how government policies
+            can influence industrial waste, recycling decisions and the
+            social cost of pollution.
+        </p>
+
+        <div class="author">
+            Made by <strong>Nihar Ranjan Sahu</strong><br>
+            Department of Economics • Guru Ghasidas Vishwavidyalaya<br>
+            Undergraduate • 1st Year
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+<!-- =========================================================
+     WHAT IS THIS PROJECT?
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+        <span>💡</span>
+
+        <div>
+            <h2>What is this project?</h2>
+            <p>A simple economic explanation of the industrial waste problem.</p>
+        </div>
+    </div>
+
+    <div class="grid-2">
+
+        <div class="card">
+
+            <h3>🏭 The basic problem</h3>
+
+            <p>
+                Imagine an industrial factory producing goods. During
+                production, the factory also produces waste.
+            </p>
+
+            <br>
+
+            <p>
+                The factory has to decide what to do with that waste:
+                it can recycle or treat it, which may cost money, or
+                dispose of it.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📈 Where economics comes in</h3>
+
+            <p>
+                The factory looks at its own costs when making this decision.
+                But waste and pollution can also create costs for people,
+                communities and the environment.
+            </p>
+
+            <br>
+
+            <p>
+                Economics helps us understand these costs and how government
+                policies can change the incentives facing the factory.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INDUSTRIAL FACTORY EXAMPLE
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>🏭</span>
+
+        <div>
+            <h2>Example: An Industrial Factory</h2>
+            <p>
+                Let's follow what happens when a factory generates waste.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="factory-card">
+
+        <div class="factory-flow">
+
+            <div class="flow-box">
+                <span class="emoji">🏭</span>
+                <strong>Factory</strong>
+                <small>Produces goods</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                <span class="emoji">🗑️</span>
+                <strong>Waste</strong>
+                <small>1,000 tonnes</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                <span class="emoji">♻️</span>
+                <strong>Recycling</strong>
+                <small>Recovery of resources</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                <span class="emoji">💰</span>
+                <strong>Economic Value</strong>
+                <small>Waste becomes a resource</small>
+            </div>
+
+        </div>
+
+
+        <p class="factory-note">
+            This demonstrates a basic idea of the <strong>circular economy</strong>:
+            waste does not always have to be treated as something with no value.
+            Some waste can be recovered, recycled and converted into useful resources.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GOVERNMENT POLICIES
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>🏛️</span>
+
+        <div>
+            <h2>How can the Government influence this?</h2>
+            <p>
+                Government can change the economic incentives faced by producers.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="policy-grid">
+
+        <div class="policy-card">
+
+            <div class="policy-icon">🧾</div>
+
+            <h3>Pollution Tax</h3>
+
+            <p>
+                The government can impose a tax on pollution or waste disposal.
+                This increases the cost of polluting and can encourage factories
+                to reduce waste or choose cleaner alternatives.
+            </p>
+
+            <div class="example">
+                <strong>Example:</strong>
+                A factory pays ₹200 per tonne of taxable waste disposal.
+            </div>
+
+        </div>
+
+
+        <div class="policy-card">
+
+            <div class="policy-icon">♻️</div>
+
+            <h3>Recycling Subsidy</h3>
+
+            <p>
+                The government can provide financial support for recycling
+                or cleaner production. This lowers the effective cost of
+                environmentally friendly activities.
+            </p>
+
+            <div class="example">
+                <strong>Example:</strong>
+                A factory receives ₹100 per tonne of qualifying recycled material.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOCIAL COST EXPLANATION
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>👥</span>
+
+        <div>
+            <h2>Why does Social Cost matter to the public?</h2>
+            <p>
+                Pollution can create costs for people who are not involved
+                in the factory's decision.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="public-cost-box">
+
+        <div class="public-intro">
+
+            <strong>
+                🏭 Factory decision → 🌫️ Pollution → 👥 Public impact
+            </strong>
+
+            <p>
+                The factory may only pay the direct cost of disposing of its
+                waste. However, pollution can create additional costs for
+                society. These are called <strong>external costs</strong>.
+            </p>
+
+        </div>
+
+
+        <div class="impact-grid">
+
+            <div class="impact-card">
+
+                <span>🌫️</span>
+
+                <h3>Health</h3>
+
+                <p>
+                    Pollution can increase health-related costs for people
+                    living near affected areas.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span>💧</span>
+
+                <h3>Water & Soil</h3>
+
+                <p>
+                    Waste can damage water sources, soil quality and other
+                    resources used by communities.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span>🧹</span>
+
+                <h3>Public Cleanup</h3>
+
+                <p>
+                    Governments may have to spend public money managing
+                    pollution and cleaning affected areas.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span>🌱</span>
+
+                <h3>Environment</h3>
+
+                <p>
+                    Pollution can cause environmental damage that does not
+                    appear on the factory's own balance sheet.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="social-cost-explanation">
+
+            <h3>💡 Why is this useful?</h3>
+
+            <p>
+                Social cost helps governments understand the
+                <strong>broader economic impact</strong> of pollution.
+                If a factory considers only its private cost, it may have
+                less incentive to reduce waste.
+            </p>
+
+            <br>
+
+            <p>
+                By considering the costs imposed on the public, policymakers
+                can design measures such as pollution taxes, recycling
+                subsidies and environmental regulations.
+            </p>
+
+
+            <div class="formula-large">
+
+                <span>Social Cost</span>
+
+                <b>=</b>
+
+                <span>Private Cost</span>
+
+                <b>+</b>
+
+                <span>External Cost on Society</span>
+
+            </div>
+
+
+            <div class="example-highlight">
+
+                <strong>Our example:</strong>
+
+                The factory's disposal cost is
+                <strong>₹100/tonne</strong>.
+
+                The estimated external cost to society is
+                <strong>₹250/tonne</strong>.
+
+                <br><br>
+
+                Therefore:
+
+                <br>
+
+                <strong>₹100 + ₹250 = ₹350 social cost per tonne</strong>
+
+            </div>
+
+
+            <p class="small-note">
+                The ₹250 is not a direct bill paid by each citizen.
+                It is an illustrative economic estimate of the harm and
+                costs that pollution can impose on society.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTERACTIVE POLICY SIMULATOR
+========================================================= -->
+
+<section>
+
+    <div class="simulator">
+
+        <div class="simulator-header">
+
+            <h2>🎛️ Interactive Policy Simulator</h2>
+
+            <p>
+                Change the government's pollution tax and recycling subsidy
+                to see how the simplified economic model responds.
+            </p>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+
+            <div class="control">
+
+                <div class="control-top">
+
+                    <label for="tax">
+                        🧾 Pollution Tax
+                    </label>
+
+                    <span class="value">
+                        ₹<span id="taxValue">0</span>/tonne
+                    </span>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="tax"
+                    min="0"
+                    max="500"
+                    value="0"
+                    step="10"
+                >
+
+                <p class="help-text">
+                    Higher tax → higher cost of disposal → stronger incentive
+                    to reduce pollution.
+                </p>
+
+            </div>
+
+
+            <div class="control">
+
+                <div class="control-top">
+
+                    <label for="subsidy">
+                        ♻️ Recycling Subsidy
+                    </label>
+
+                    <span class="value">
+                        ₹<span id="subsidyValue">0</span>/tonne
+                    </span>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="subsidy"
+                    min="0"
+                    max="500"
+                    value="0"
+                    step="10"
+                >
+
+                <p class="help-text">
+                    Higher subsidy → lower effective recycling cost →
+                    stronger incentive to recycle.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- KPIs -->
+
+        <div class="kpi-grid">
+
+            <div class="kpi">
+
+                <div class="kpi-label">
+                    Total Waste
+                </div>
+
+                <div class="kpi-value">
+                    1,000 t
+                </div>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <div class="kpi-label">
+                    Recycling Rate
+                </div>
+
+                <div class="kpi-value" id="recyclingRate">
+                    40%
+                </div>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <div class="kpi-label">
+                    Waste Disposed
+                </div>
+
+                <div class="kpi-value">
+                    <span id="disposed">
+                        600
+                    </span> t
+                </div>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <div class="kpi-label">
+                    External Cost
+                </div>
+
+                <div class="kpi-value">
+                    ₹250/t
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- VISUALIZATION -->
+
+        <div class="visual-grid">
+
+            <div class="visual-card">
+
+                <h3>Waste Allocation</h3>
+
+                <div class="bar-container">
+
+                    <div
+                        class="recycled-bar"
+                        id="recycledBar"
+                    ></div>
+
+                    <div
+                        class="disposed-bar"
+                        id="disposedBar"
+                    ></div>
+
+                </div>
+
+
+                <div class="legend">
+
+                    <span>
+                        <i class="dot green-dot"></i>
+                        Recycled:
+                        <strong id="recycledLegend">400 t</strong>
+                    </span>
+
+                    <span>
+                        <i class="dot grey-dot"></i>
+                        Disposed:
+                        <strong id="disposedLegend">600 t</strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="visual-card">
+
+                <h3>Cost to Society</h3>
+
+                <div class="cost-label">
+                    Illustrative social cost per tonne disposed
+                </div>
+
+                <div class="cost-number">
+                    ₹<span id="socialCost">350</span>
+                </div>
+
+                <div class="cost-label">
+                    per tonne
+                </div>
+
+
+                <div class="formula">
+
+                    <strong>Social Cost</strong><br>
+
+                    Private Disposal Cost
+                    ₹100
+
+                    +
+
+                    External Environmental Cost
+                    ₹250
+
+                    =
+
+                    ₹350
+
+                    <br><br>
+
+                    <span id="taxExplanation">
+                        The tax is currently ₹0, so the firm's disposal
+                        decision is not affected by a pollution tax.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INSIGHT -->
+
+        <div class="insight">
+
+            <h3>📊 Economic Insight</h3>
+
+            <p id="insightText">
+                With no pollution tax and no recycling subsidy,
+                the model starts with a 40% recycling rate.
+                The remaining 60% is disposed of.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL TAKEAWAY
+========================================================= -->
+
+<section>
+
+    <div class="takeaway">
+
+        <h2>♻️ From Waste to Wealth</h2>
+
+        <p>
+            Waste is not only an environmental issue — it is also an
+            economic issue. Factories respond to costs and incentives.
+            Governments can influence those incentives through policies
+            such as pollution taxes and recycling subsidies.
+        </p>
+
+        <br>
+
+        <p>
+            When the economic costs imposed on society are considered,
+            businesses have a stronger reason to reduce waste, recycle
+            materials and adopt cleaner production methods.
+        </p>
+
+        <br>
+
+        <p>
+            The ultimate idea is simple:
+            <strong>
+                instead of seeing waste only as something to throw away,
+                we can look for ways to turn it into an economic resource.
+            </strong>
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <strong>
+            Swachhata Hi Seva 2026
+        </strong>
+
+        <br>
+
+        Interactive Economics Exhibition Project
+
+        <br>
+
+        Made by Nihar Ranjan Sahu • Department of Economics •
+        Guru Ghasidas Vishwavidyalaya • 1st Year
+
+        <br><br>
+
+        <em>
+            All numerical values and behavioural relationships in this
+            simulator are illustrative assumptions for educational purposes
+            and are not real-world estimates.
+        </em>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /*
+        -------------------------------------------------------
+        BASIC MODEL
+        -------------------------------------------------------
+
+        These numbers are deliberately illustrative.
+
+        Total industrial waste = 1,000 tonnes
+        Starting recycling rate = 40%
+        Private disposal cost = ₹100/tonne
+        External environmental cost = ₹250/tonne
+
+        The model assumes that higher pollution taxes and
+        recycling subsidies increase the incentive to recycle.
+
+        This is NOT an empirical real-world estimate.
+    */
+
+    const totalWaste = 1000;
+
+    const baseRecyclingRate = 40;
+
+    const privateDisposalCost = 100;
+
+    const externalCost = 250;
+
+
+    /*
+        GET HTML ELEMENTS
+    */
+
+    const taxSlider = document.getElementById("tax");
+
+    const subsidySlider = document.getElementById("subsidy");
+
+    const taxValue = document.getElementById("taxValue");
+
+    const subsidyValue = document.getElementById("subsidyValue");
+
+    const recyclingRateElement =
+        document.getElementById("recyclingRate");
+
+    const disposedElement =
+        document.getElementById("disposed");
+
+    const recycledBar =
+        document.getElementById("recycledBar");
+
+    const disposedBar =
+        document.getElementById("disposedBar");
+
+    const recycledLegend =
+        document.getElementById("recycledLegend");
+
+    const disposedLegend =
+        document.getElementById("disposedLegend");
+
+    const socialCostElement =
+        document.getElementById("socialCost");
+
+    const taxExplanation =
+        document.getElementById("taxExplanation");
+
+    const insightText =
+        document.getElementById("insightText");
+
+
+    /*
+        UPDATE SIMULATOR
+    */
+
+    function updateSimulator() {
+
+        const tax = Number(taxSlider.value);
+
+        const subsidy = Number(subsidySlider.value);
+
+
+        /*
+            Simplified behavioural relationship:
+
+            Every ₹100 of combined policy incentive
+            increases the recycling rate by approximately
+            4 percentage points.
+
+            The rate is restricted between 10% and 90%.
+
+            This is only an educational assumption.
+        */
+
+        let recyclingRate =
+            baseRecyclingRate +
+            ((tax + subsidy) / 100) * 4;
+
+
+        recyclingRate =
+            Math.max(
+                10,
+                Math.min(90, recyclingRate)
+            );
+
+
+        recyclingRate =
+            Math.round(recyclingRate);
+
+
+        const recycled =
+            Math.round(
+                totalWaste * recyclingRate / 100
+            );
+
+
+        const disposed =
+            totalWaste - recycled;
+
+
+        /*
+            SOCIAL COST
+
+            Social cost here is:
+
+            Private disposal cost
+            +
+            External environmental cost
+
+            The pollution tax is shown separately because
+            a tax is a policy transfer/incentive rather than
+            automatically being an additional real resource
+            cost to society.
+        */
+
+        const socialCost =
+            privateDisposalCost +
+            externalCost;
+
+
+        /*
+            UPDATE TEXT
+        */
+
+        taxValue.textContent = tax;
+
+        subsidyValue.textContent = subsidy;
+
+        recyclingRateElement.textContent =
+            recyclingRate + "%";
+
+        disposedElement.textContent =
+            disposed;
+
+
+        /*
+            UPDATE BAR GRAPH
+        */
+
+        recycledBar.style.width =
+            recyclingRate + "%";
+
+        disposedBar.style.width =
+            (100 - recyclingRate) + "%";
+
+
+        /*
+            UPDATE LEGENDS
+        */
+
+        recycledLegend.textContent =
+            recycled + " t";
+
+        disposedLegend.textContent =
+            disposed + " t";
+
+
+        /*
+            UPDATE SOCIAL COST
+        */
+
+        socialCostElement.textContent =
+            socialCost;
+
+
+        /*
+            TAX EXPLANATION
+        */
+
+        if (tax === 0) {
+
+            taxExplanation.textContent =
+                "The tax is currently ₹0, so the firm's disposal decision is not affected by a pollution tax.";
+
+        } else {
+
+            taxExplanation.textContent =
+                "A ₹" + tax +
+                "/tonne pollution tax increases the firm's effective cost of disposal and creates an incentive to reduce waste.";
+
+        }
+
+
+        /*
+            ECONOMIC INSIGHT
+        */
+
+        if (tax === 0 && subsidy === 0) {
+
+            insightText.textContent =
+                "With no pollution tax and no recycling subsidy, the model starts with a 40% recycling rate. The remaining 60% is disposed of.";
+
+        }
+
+        else if (tax > 0 && subsidy === 0) {
+
+            insightText.textContent =
+                "The pollution tax makes disposal more expensive for the factory. In this simplified model, that stronger incentive increases the recycling rate.";
+
+        }
+
+        else if (tax === 0 && subsidy > 0) {
+
+            insightText.textContent =
+                "The recycling subsidy lowers the effective cost of recycling. In this simplified model, the factory therefore has a stronger incentive to recycle.";
+
+        }
+
+        else {
+
+            insightText.textContent =
+                "Both policies are being used. The pollution tax raises the cost of disposal while the recycling subsidy makes recycling more attractive. Together, they create a stronger incentive to reduce waste.";
+
+        }
+
+    }
+
+
+    /*
+        LISTEN FOR SLIDER CHANGES
+    */
+
+    taxSlider.addEventListener(
+        "input",
+        updateSimulator
+    );
+
+    subsidySlider.addEventListener(
+        "input",
+        updateSimulator
+    );
+
+
+    /*
+        INITIAL DISPLAY
+    */
+
+    updateSimulator();
+
+</script>
+
+</body>
+</html>
